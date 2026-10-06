@@ -1,0 +1,907 @@
+/* ================================
+   СБРОС СТИЛЕЙ
+================================ */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    color: #222;
+    background: #fff;
+    line-height: 1.6;
+
+    overflow-x: hidden;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button,
+input,
+textarea {
+    font: inherit;
+}
+
+
+/* ================================
+   ОБЩИЕ ЭЛЕМЕНТЫ
+================================ */
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.section {
+    padding: 80px 0;
+}
+
+.section-title {
+    margin-bottom: 15px;
+
+    font-size: 36px;
+    line-height: 1.2;
+}
+
+.section-subtitle {
+    max-width: 700px;
+
+    margin-bottom: 45px;
+
+    color: #666;
+}
+
+
+/* ================================
+   КНОПКИ
+================================ */
+
+.button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    min-height: 48px;
+
+    padding: 0 24px;
+
+    border: none;
+    border-radius: 6px;
+
+    background: #e87918;
+    color: #fff;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s ease,
+        transform 0.15s ease,
+        box-shadow 0.2s ease;
+}
+
+.button:hover {
+    background: #c95f0d;
+
+    transform: translateY(-2px);
+
+    box-shadow: 0 8px 20px rgba(232, 121, 24, 0.25);
+}
+
+.button:active {
+    transform: translateY(0);
+
+    box-shadow: none;
+}
+
+
+/* ================================
+   HEADER
+================================ */
+
+.header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+
+    background: #fff;
+
+    border-bottom: 1px solid #eee;
+}
+
+.header__inner {
+    min-height: 80px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 30px;
+}
+
+.logo {
+    font-size: 20px;
+    font-weight: 800;
+
+    white-space: nowrap;
+}
+
+.nav {
+    display: flex;
+    align-items: center;
+
+    gap: 30px;
+}
+
+.nav a {
+    position: relative;
+
+    color: #333;
+
+    font-size: 15px;
+    font-weight: 600;
+
+    transition: color 0.2s ease;
+}
+
+.nav a::after {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    bottom: -6px;
+
+    width: 0;
+    height: 2px;
+
+    background: #e87918;
+
+    transition: width 0.2s ease;
+}
+
+.nav a:hover {
+    color: #e87918;
+}
+
+.nav a:hover::after {
+    width: 100%;
+}
+
+.header__button {
+    white-space: nowrap;
+}
+
+
+/* ================================
+   МОБИЛЬНАЯ КНОПКА МЕНЮ
+================================ */
+
+.menu-button {
+    display: none;
+
+    width: 44px;
+    height: 44px;
+
+    padding: 9px;
+
+    border: none;
+    border-radius: 6px;
+
+    background: transparent;
+
+    cursor: pointer;
+}
+
+.menu-button span {
+    display: block;
+
+    width: 100%;
+    height: 2px;
+
+    margin: 5px 0;
+
+    background: #222;
+
+    transition:
+        transform 0.2s ease,
+        opacity 0.2s ease;
+}
+
+/* Крестик */
+
+.menu-button--open span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+}
+
+.menu-button--open span:nth-child(2) {
+    opacity: 0;
+}
+
+.menu-button--open span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+}
+
+
+/* ================================
+   HERO
+================================ */
+
+.hero {
+    min-height: 650px;
+
+    display: flex;
+    align-items: center;
+
+    background:
+        linear-gradient(
+            rgba(0, 0, 0, 0.55),
+            rgba(0, 0, 0, 0.55)
+        ),
+        url("images/hero.jpg") center / cover no-repeat;
+
+    color: #fff;
+}
+
+.hero__content {
+    max-width: 800px;
+}
+
+.hero__subtitle {
+    margin-bottom: 15px;
+
+    color: #f3a05c;
+
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.hero h1 {
+    margin-bottom: 25px;
+
+    font-size: 56px;
+    line-height: 1.1;
+}
+
+.hero__text {
+    max-width: 700px;
+
+    margin-bottom: 30px;
+
+    color: #eee;
+
+    font-size: 18px;
+}
+
+.hero__location {
+    margin-top: 20px;
+
+    color: #ddd;
+
+    font-size: 14px;
+}
+
+
+/* ================================
+   УСЛУГИ
+================================ */
+
+.services {
+    background: #fff;
+}
+
+.services-grid {
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+
+    gap: 20px;
+}
+
+.service-card {
+    position: relative;
+
+    overflow: hidden;
+
+    padding: 30px;
+
+    background: #f7f7f7;
+
+    border: 1px solid #eee;
+    border-radius: 8px;
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.service-card::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 4px;
+    height: 0;
+
+    background: #e87918;
+
+    transition: height 0.25s ease;
+}
+
+.service-card:hover {
+    transform: translateY(-5px);
+
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+}
+
+.service-card:hover::before {
+    height: 100%;
+}
+
+.service-card h3 {
+    margin-bottom: 12px;
+
+    font-size: 21px;
+}
+
+.service-card p {
+    color: #666;
+
+    font-size: 15px;
+}
+
+
+/* ================================
+   О КОМПАНИИ
+================================ */
+
+.about {
+    background: #f7f7f7;
+}
+
+.about__grid {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 50px;
+
+    align-items: center;
+}
+
+.about__text p {
+    margin-bottom: 20px;
+
+    color: #555;
+}
+
+.about__image {
+    min-height: 400px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #ddd;
+
+    border-radius: 8px;
+
+    color: #777;
+
+    text-align: center;
+}
+
+
+/* ================================
+   ПРЕИМУЩЕСТВА
+================================ */
+
+.advantages {
+    background: #222;
+
+    color: #fff;
+}
+
+.advantages .section-subtitle {
+    color: #bbb;
+}
+
+.advantages-grid {
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+
+    gap: 30px;
+}
+
+.advantage {
+    padding: 25px;
+
+    border: 1px solid #444;
+    border-radius: 8px;
+
+    transition:
+        transform 0.2s ease,
+        border-color 0.2s ease;
+}
+
+.advantage:hover {
+    transform: translateY(-5px);
+
+    border-color: #e87918;
+}
+
+.advantage h3 {
+    margin-bottom: 10px;
+
+    color: #fff;
+}
+
+.advantage p {
+    color: #aaa;
+}
+
+
+/* ================================
+   ПРОЕКТЫ
+================================ */
+
+.projects {
+    background: #fff;
+}
+
+.projects-grid {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 20px;
+}
+
+.project-card {
+    overflow: hidden;
+
+    background: #f7f7f7;
+
+    border: 1px solid #eee;
+    border-radius: 8px;
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+}
+
+.project-card__image {
+    min-height: 250px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #ddd;
+
+    color: #777;
+}
+
+.project-card__content {
+    padding: 20px;
+}
+
+.project-card h3 {
+    margin-bottom: 8px;
+}
+
+.project-card p {
+    color: #666;
+}
+
+
+/* ================================
+   КОНТАКТЫ
+================================ */
+
+.contacts {
+    background: #f7f7f7;
+}
+
+.contacts__grid {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 50px;
+}
+
+.contacts__info p {
+    margin-bottom: 15px;
+
+    color: #555;
+}
+
+.contacts__info strong {
+    color: #222;
+}
+
+
+/* ================================
+   ФОРМА
+================================ */
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+
+    gap: 15px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+
+    gap: 7px;
+}
+
+.form-group label {
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+
+    padding: 13px 15px;
+
+    background: #fff;
+
+    border: 1px solid #ddd;
+    border-radius: 6px;
+
+    outline: none;
+
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: #e87918;
+
+    box-shadow: 0 0 0 3px rgba(232, 121, 24, 0.1);
+}
+
+.form-group textarea {
+    min-height: 140px;
+
+    resize: vertical;
+}
+
+.contact-form .button {
+    align-self: flex-start;
+}
+
+
+/* ================================
+   СООБЩЕНИЕ ФОРМЫ
+================================ */
+
+.form-message {
+    display: none;
+
+    margin-top: 15px;
+
+    padding: 15px;
+
+    font-size: 14px;
+
+    border-radius: 6px;
+}
+
+.form-message--success {
+    display: block;
+
+    background: #eaf7ee;
+
+    color: #267a43;
+
+    border: 1px solid #bce3c8;
+}
+
+.form-message--error {
+    display: block;
+
+    background: #fff0f0;
+
+    color: #a83232;
+
+    border: 1px solid #edc0c0;
+}
+
+
+/* ================================
+   ОШИБКА ПОЛЯ
+================================ */
+
+.input--error {
+    border-color: #d33b3b !important;
+}
+
+
+/* ================================
+   FOOTER
+================================ */
+
+.footer {
+    padding: 30px 0;
+
+    background: #181818;
+
+    color: #aaa;
+}
+
+.footer__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 20px;
+}
+
+.footer a {
+    transition: color 0.2s ease;
+}
+
+.footer a:hover {
+    color: #e87918;
+}
+
+
+/* ================================
+   АДАПТИВНОСТЬ
+================================ */
+
+
+/* Планшет */
+
+@media (max-width: 1000px) {
+
+    .hero h1 {
+        font-size: 46px;
+    }
+
+    .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .advantages-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .projects-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+
+/* ================================
+   МОБИЛЬНЫЕ УСТРОЙСТВА
+================================ */
+
+@media (max-width: 750px) {
+
+    .section {
+        padding: 60px 0;
+    }
+
+    .section-title {
+        font-size: 30px;
+    }
+
+
+    /* Header */
+
+    .header__inner {
+        min-height: 70px;
+    }
+
+    .header__button {
+        display: none;
+    }
+
+    .menu-button {
+        display: block;
+    }
+
+    .nav {
+        position: absolute;
+
+        top: 70px;
+        left: 0;
+
+        width: 100%;
+
+        display: none;
+        flex-direction: column;
+        align-items: stretch;
+
+        gap: 0;
+
+        padding: 10px 20px 20px;
+
+        background: #fff;
+
+        border-bottom: 1px solid #eee;
+
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+    }
+
+    .nav.nav--open {
+        display: flex;
+    }
+
+    .nav a {
+        display: block;
+
+        padding: 14px 0;
+
+        border-bottom: 1px solid #eee;
+    }
+
+    .nav a:last-child {
+        border-bottom: none;
+    }
+
+    .nav a::after {
+        display: none;
+    }
+
+
+    /* Hero */
+
+    .hero {
+        min-height: 600px;
+    }
+
+    .hero h1 {
+        font-size: 38px;
+    }
+
+    .hero__text {
+        font-size: 16px;
+    }
+
+
+    /* About */
+
+    .about__grid {
+        grid-template-columns: 1fr;
+
+        gap: 30px;
+    }
+
+    .about__image {
+        min-height: 300px;
+
+        order: -1;
+    }
+
+
+    /* Contacts */
+
+    .contacts__grid {
+        grid-template-columns: 1fr;
+
+        gap: 35px;
+    }
+
+
+    /* Footer */
+
+    .footer__inner {
+        flex-direction: column;
+
+        align-items: flex-start;
+    }
+}
+
+
+/* ================================
+   МАЛЕНЬКИЕ ТЕЛЕФОНЫ
+================================ */
+
+@media (max-width: 500px) {
+
+    .container {
+        padding: 0 15px;
+    }
+
+    .section {
+        padding: 50px 0;
+    }
+
+    .section-title {
+        font-size: 27px;
+    }
+
+
+    /* Hero */
+
+    .hero {
+        min-height: 550px;
+    }
+
+    .hero h1 {
+        font-size: 32px;
+    }
+
+    .hero__subtitle {
+        font-size: 16px;
+    }
+
+    .hero__text {
+        font-size: 15px;
+    }
+
+    .hero .button {
+        width: 100%;
+    }
+
+
+    /* Services */
+
+    .services-grid {
+        grid-template-columns: 1fr;
+    }
+
+
+    /* Advantages */
+
+    .advantages-grid {
+        grid-template-columns: 1fr;
+    }
+
+
+    /* Projects */
+
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+
+
+    /* Form */
+
+    .contact-form .button {
+        width: 100%;
+    }
+
+
+    /* Footer */
+
+    .footer {
+        font-size: 14px;
+    }
+}
